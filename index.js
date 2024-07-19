@@ -53,36 +53,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p><strong>Available Tickets:</strong> ${film.capacity - film.tickets_sold}</p>
                 <p>${film.description}</p>
                 <img id="movie-poster" src="${film.poster}" alt="${film.title} Poster">
-                <button class="buy-ticket" data-film-id="${film.id}">Buy Ticket</button>
+                <button id="buy-ticket">Buy Ticket</button>
             </div>
         `;
 
-        // Apply styles to the movie poster
+        // Ensure the movie-poster styles are applied correctly
         const moviePoster = document.getElementById('movie-poster');
         if (moviePoster) {
-            moviePoster.style.maxWidth = '600px';
-            moviePoster.style.height = '600px';
+            moviePoster.style.maxWidth = '600px'; // Ensure units are included
+            moviePoster.style.height = '600px'; // Ensure units are included
             moviePoster.style.display = 'block';
             moviePoster.style.margin = '0 auto';
         }
 
-        // Add click event listener to the "Buy Ticket" button
-        const buyTicketButton = document.querySelector('.buy-ticket');
+        const buyTicketButton = document.getElementById('buy-ticket');
         if (buyTicketButton) {
-            buyTicketButton.addEventListener('click', handleBuyTicketClick);
-        }
-    }
-
-    // Function to handle the "Buy Ticket" button click
-    function handleBuyTicketClick(event) {
-        const filmId = event.target.dataset.filmId;
-        fetch(`${filmsUrl}/${filmId}`)
-            .then(response => response.json())
-            .then(film => {
+            buyTicketButton.addEventListener('click', () => {
                 if (film.capacity - film.tickets_sold > 0) {
                     film.tickets_sold++;
                     // Update the server with the new tickets_sold value
-                    fetch(`${filmsUrl}/${filmId}`, {
+                    fetch(`${filmsUrl}/${film.id}`, {
                         method: 'PATCH',
                         headers: {
                             'Content-Type': 'application/json'
@@ -94,14 +84,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     })
                     .catch(error => console.error('Error updating tickets sold:', error));
                 } else {
-                    event.target.textContent = 'Sold Out';
-                    event.target.disabled = true;
+                    buyTicketButton.textContent = 'Sold Out';
+                    buyTicketButton.disabled = true;
                 }
-            })
-            .catch(error => console.error('Error fetching film for buy ticket:', error));
+            });
+        } else {
+            console.error('Buy ticket button not found.');
+        }
     }
 
     // Initial fetch of films when the page loads
     fetchFilms();
 });
-
