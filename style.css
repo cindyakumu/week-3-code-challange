@@ -1,0 +1,150 @@
+/* General Styles */
+body {
+  background-image: url(26245e3f-2115-458f-ac1b-bcd3b359e442.jpeg);
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background-color: #d42727;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  margin: 1rem;
+}
+
+/* Sidebar (Film List) */
+aside {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+#films {
+  list-style-type: none;
+  padding: 0;
+}
+
+.film {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.film:hover {
+  background-image: url(26245e3f-2115-458f-ac1b-bcd3b359e442.jpeg);
+  background-color: #883939;
+}
+
+.film img {
+  max-width: 100px; /* Adjust size */
+  height: auto;
+  border-radius: 5px;
+  margin-right: 1rem;
+  vertical-align: middle;
+}
+
+/* Main Content (Film Details) */
+#movie-details {
+  flex: 2;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.movie-info {
+  text-align: center;
+}
+
+.movie-info h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.movie-info p {
+  margin: 0.5rem 0;
+}
+
+.movie-info img {
+  max-width: 600px; /* Adjust size */
+  height: auto;
+  border-radius: 5px;
+  display: block;
+  margin: 1rem auto;
+}
+
+/* Button Styles */
+button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+.movie-info {
+  text-align: center;
+}
+
+.movie-info h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.movie-info p {
+  font-size: 1.2em;
+  margin: 0.5em 0;
+}
+
+.movie-info img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.buy-ticket {
+  background-color: #ff5733;
+  border: none;
+  color: white;
+  padding: 0.5em 1em;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 1em;
+  transition: background-color 0.3s;
+}
+
+.buy-ticket:hover {
+  background-color: #c70039;
+}
+
+.buy-ticket:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
